@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>AllNamesServletIndex</servlet-name>
+        <servlet-class>controller.AllNamesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllNamesServlet</servlet-name>
+        <servlet-class>controller.AllNamesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNamesServlet</servlet-name>
+        <servlet-class>controller.AddNamesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveNamesServlet</servlet-name>
+        <servlet-class>controller.RemoveNamesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AllNamesServletIndex</servlet-name>
+        <url-pattern>/index.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllNamesServlet</servlet-name>
+        <url-pattern>/names.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNamesServlet</servlet-name>
+        <url-pattern>/addNames.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveNamesServlet</servlet-name>
+        <url-pattern>/removeNames.html</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>view/main.jsp</welcome-file>  
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
