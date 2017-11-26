@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msgs.orderTitle}</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            #{msgs.orderFrom}:
+            <h:selectOneMenu value="#{orderForm.fromCity}">
+                <f:selectItems value="#{orderForm.fromCities}"/>
+            </h:selectOneMenu>
+            <br/>
+            #{msgs.orderTo}:
+            <h:selectOneMenu value="#{orderForm.toCity}">
+                <f:selectItems value="#{orderForm.toCities}"/>
+            </h:selectOneMenu>
+            <br/>
+            #{msgs.orderDepartureDate}:
+            <h:inputText value="#{orderForm.departureDate}" />
+            <br/>
+            #{msgs.orderReturnDate}:
+            <h:inputText value="#{orderForm.returnDate}" />
+            <br/>
+            <h:selectOneRadio value="#{orderForm.typeOfTrip}">
+                <f:selectItem itemValue="Round trip" itemLabel="Round trip" />
+                <f:selectItem itemValue="One way" itemLabel="One way"/>
+            </h:selectOneRadio>
+            <h:selectManyCheckbox value="#{orderForm.selectedOptionList}">
+                <f:selectItems value="#{orderForm.optionList}"/>
+            </h:selectManyCheckbox>
+            <br/>
+            <h:commandButton value="${msgs.orderSubmit}" action="#{orderForm.doRegister()}" />
+        </h:form>
+    </h:body>
+</html>
+
