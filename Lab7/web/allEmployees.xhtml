@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>Facelet Title1</title>
+    </head>
+    <body>
+        <ui:composition template="/templates/masterLayout.xhtml">
+            <ui:define name="windowTitle">
+                Lab7
+            </ui:define>
+            <ui:define name="sidebarLeft">
+                <h:form>
+                    <h:commandButton value="Back to Master-Detail" action="index.xhtml?redirec=true" />
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <h:dataTable value="#{employeeList.employeeList}" var="employeeItem">
+                    <f:facet name="header">
+                        <tr>
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Phone</td>
+                            <td>Salary</td>
+                        </tr>
+                    </f:facet>
+                    <h:column>
+                        #{employeeItem.id}
+                    </h:column>
+                    <h:column>
+                        #{employeeItem.name}
+                    </h:column>
+                    <h:column>
+                        #{employeeItem.phone}
+                    </h:column>
+                    <h:column>
+                        #{employeeItem.salary}
+                    </h:column>
+                </h:dataTable>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+
