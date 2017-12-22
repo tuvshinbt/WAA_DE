@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+    <h:head>
+        <title>#{msgs.title}</title>
+    </h:head>
+    <h:body>
+
+        <h:form>
+            <h1>#{msgs.validation}</h1>
+            <h:panelGrid columns="3">
+                #{msgs.validationBrand}
+                <h:inputText id="brand" value="#{car.brand}"
+                             required="true"
+                             label="#{msgs.validationBrand}">
+                    <f:converter converterId="utils.CarBrandConverter" />
+                    <f:validator validatorId="utils.CarBrandValidator" />
+                </h:inputText>
+                <h:message for="brand" styleClass="errorMessage" showSummary="true" showDetail="false"  style="color:red" />
+                #{msgs.validationLicence}
+                <h:inputText id="licence" value="#{car.licence}"
+                             required="true"
+                             label="#{msgs.validationLicence}">
+                    <f:converter converterId="utils.CarLicenceConverter" />
+                    <f:validator validatorId="utils.CarLicenceValidator" />
+                </h:inputText>
+                <h:message for="licence" styleClass="errorMessage" showSummary="true" showDetail="false"  style="color:red" />
+                #{msgs.validationPrice}
+                <h:inputText id="price" value="#{car.price}" 
+                             required="true"
+                             label="#{msgs.validationPrice}">
+                    <f:validateDoubleRange minimum="1" maximum="10000"/>
+                </h:inputText>
+                <h:message for="price" styleClass="errorMessage" showSummary="true" showDetail="false"  style="color:red" />
+            </h:panelGrid>
+            <h:commandButton value="#{msgs.validationSubmit}" action="#{car.result()}"/>
+            <h:commandButton value="#{msgs.validationBack}" action="index?faces-redirect=true" immediate="true"/>
+        </h:form>
+    </h:body>
+</html>
